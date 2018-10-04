@@ -48,5 +48,5 @@
     <div class="range-button" (mousedown)="doMyOwnThing()" #rangeButton [style.left.%]="left"></div>
   </div>
 
-  <input type="range" id="seek-bar" value="0" width="100">
+  <input #seekBar type="range" id="seek-bar" value="0" width="100" (mousedown)="doMyOwnThing()">
  

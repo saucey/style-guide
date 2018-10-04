@@ -11,6 +11,7 @@ export class AppComponent {
   @ViewChild("videoPlayer") videoPlayer: ElementRef;
   @ViewChild("rangeBar") rangeBar: ElementRef;
   @ViewChild("rangeButton") rangeButton: ElementRef;
+  @ViewChild("seekBar") seekBar: ElementRef;
   
   public left: number = 0;
   public vidLength: number = 0;
@@ -25,26 +26,32 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    console.log(this.rangeButton.nativeElement.offsetWidth, 'video el')
+    // console.log(this.rangeButton.nativeElement.offsetWidth, 'video el')
   }
 
   ngOnInit(){
+  }
+
+  public doMyOwnThing(){
+    console.log('change')
   }
 
   public currentTime() {
     this.vidLength = this.videoPlayer.nativeElement.duration;
     this.currentTimes = this.videoPlayer.nativeElement.currentTime;
     this.rangeBar = this.rangeBar.nativeElement.offsetWidth;
-    this.rangeButton = this.rangeButton.nativeElement.offsetWidth;
+    // this.rangeButton = this.rangeButton.nativeElement.offsetWidth;
+    this.seekBar = this.seekBar.nativeElement.offsetWidth;
+    
 
     console.log(this.rangeBar,'range bar')
 
     this.currentPercent = (this.currentTimes / this.vidLength) * 100;
     this.currentPercent = (this.currentPercent.toFixed(2));
 
-    this.rangeButtonPercent = (this.rangeBar - this.rangeButton) / this.rangeBar;
+    // this.rangeButtonPercent = (this.rangeBar - this.rangeButton) / this.rangeBar;
 
-    console.log(this.rangeButtonPercent, 'range button in percent')
+    // console.log(this.rangeButtonPercent, 'range button in percent')
 
     // this.left = this.currentPercent
     this.left = this.currentPercent;
