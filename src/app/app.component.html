@@ -17,4 +17,36 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
+<div null-undefined-empty>Hello {{name}}</div>
+ 
 
+  <div id="video-container">
+    <!-- Video -->
+    <video id="video" width="640" height="365" #videoPlayer (timeupdate)="currentTime()">
+      <source src="assets/videos/sintel-short.mp4" type="video/mp4">
+      <source src="assets/videos/sintel-short.mp4" type="video/webm">
+      <p>
+        Your browser doesn't support HTML5 video.
+        <a href="videos/mikethefrog.mp4">Download</a> the video instead.
+      </p>
+    </video>
+    <!-- Video Controls -->
+    <div id="video-controls">
+      <button type="button" id="play-play" (click)="playPlay()">Play</button>
+      <button type="button" id="play-Prev" (click)="playPrev()">Prev</button>
+      <button type="button" id="play-Next" (click)="playNext()">Next</button>
+      <button type="button" id="play-pause"(click)="playPause()">Pause</button>
+      <input type="range" id="seek-bar" value="0">
+      <button type="button" id="mute">Mute</button>
+      <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+      <button type="button" id="full-screen">Full-Screen</button>
+    </div>
+    
+  </div>
+
+  <div class="range-bar" #rangeBar>
+    <div class="range-button" (mousedown)="doMyOwnThing()" #rangeButton [style.left.%]="left"></div>
+  </div>
+
+  <input type="range" id="seek-bar" value="0" width="100">
+ 

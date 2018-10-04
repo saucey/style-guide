@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { NullUndefinedEmpty } from './directives/NullUndefinedEmpty/NullUndefinedEmpty';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NullUndefinedEmpty
   ],
   imports: [
     BrowserModule
