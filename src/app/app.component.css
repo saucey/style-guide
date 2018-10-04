@@ -1,3 +1,7 @@
+.seek-bar {
+  width: 100%;
+}
+
 @font-face {
     font-family: 'HeydingsControlsRegular';
     src: url('../assets/fonts/heydings_controls-webfont.eot');

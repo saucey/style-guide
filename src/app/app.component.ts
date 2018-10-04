@@ -15,54 +15,39 @@ export class AppComponent {
   
   public left: number = 0;
   public vidLength: number = 0;
-  public currentTimes: number = 0;
+  public currentTimes: number = 100;
   public currentPercent: number = 0;
   public rangeButton: number = 0;
   public rangeBar: number = 0;
   public rangeButtonPercent: number = 0;
+  public seekPosition: number = 30;
   
   constructor() {
-    console.log(this, 'what is this')
   }
 
-  ngAfterViewInit() {
-    // console.log(this.rangeButton.nativeElement.offsetWidth, 'video el')
+  ngOnInit() {
+    console.log(this.seekBar.nativeElement.value, 'v')
+    this.seekBar.nativeElement.value = 50
+
   }
 
-  ngOnInit(){
+  ngAfterViewInit(){
+
   }
 
-  public doMyOwnThing(){
-    console.log('change')
+  public angularMethod(val) {
+    this.vidLength = this.videoPlayer.nativeElement.duration
   }
 
-  public currentTime() {
-    this.vidLength = this.videoPlayer.nativeElement.duration;
-    this.currentTimes = this.videoPlayer.nativeElement.currentTime;
-    this.rangeBar = this.rangeBar.nativeElement.offsetWidth;
-    // this.rangeButton = this.rangeButton.nativeElement.offsetWidth;
-    this.seekBar = this.seekBar.nativeElement.offsetWidth;
-    
-
-    console.log(this.rangeBar,'range bar')
-
-    this.currentPercent = (this.currentTimes / this.vidLength) * 100;
-    this.currentPercent = (this.currentPercent.toFixed(2));
-
-    // this.rangeButtonPercent = (this.rangeBar - this.rangeButton) / this.rangeBar;
-
-    // console.log(this.rangeButtonPercent, 'range button in percent')
-
-    // this.left = this.currentPercent
-    this.left = this.currentPercent;
-    console.log(this.left, 'left pos')
-    
+  public valueChanged(val) {
+    this.videoPlayer.nativeElement.currentTime = val
+  }
+  public updateTime(){
+    var value = (100 / this.videoPlayer.nativeElement.duration) * this.videoPlayer.nativeElement.currentTime;
+    this.seekBar.value = 50;
+    console.log('time')
   }
 
-  public doMyOwnThing(event) {
-    console.log(event,'here')
-  }
-  
   public playPlay() {
     this.videoPlayer.nativeElement.play();
     this.videoPlayer.nativeElement.currentTime;
