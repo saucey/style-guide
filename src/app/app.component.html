@@ -44,12 +44,12 @@
     
   </div>
 
-  <!-- <div class="range-bar" #rangeBar>
+  <div class="range-bar" #rangeBar>
     <div class="range-button" (mousedown)="doMyOwnThing()" #rangeButton [style.left.%]="left"></div>
-  </div> -->
+  </div>
 
 <h1>{{vidLength}}</h1>
 
-  <input #seekBar min="0" max={{vidLength}} type="range" class="seek-bar" value="10" width="100" (input)="valueChanged($event.target.value)">
+  <input #seekBar min="0" max={{vidLength}} type="range" class="seek-bar" width="100" (input)="valueChanged($event.target.value)">
   <input #seekBar2 min="0" max={{vidLength}} type="range" class="seek-bar" value="50" width="100">
  

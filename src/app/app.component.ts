@@ -8,6 +8,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 
 
 export class AppComponent {
+  //selects the html elements using the #
+  
   @ViewChild("videoPlayer") videoPlayer: ElementRef;
   @ViewChild("rangeBar") rangeBar: ElementRef;
   @ViewChild("rangeButton") rangeButton: ElementRef;
@@ -37,6 +39,7 @@ export class AppComponent {
 
   public angularMethod(val) {
     this.vidLength = this.videoPlayer.nativeElement.duration
+    this.seekBar.nativeElement.value = 50
   }
 
   public valueChanged(val) {
